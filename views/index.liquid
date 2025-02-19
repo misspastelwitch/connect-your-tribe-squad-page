@@ -1,10 +1,21 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
 <h2>Students</h2>
-<ul>
+
+ <section class="container">
+  <div class="arrow" onclick="prevItem()">&#9665;</div>
+    <div>
+      <div class="image" id="pfp"></div>
+
+      <ul>
   {% for person in persons %}
     <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
   {% endfor %}
-</ul>
+      </ul>
+
+      <div class="descriptie" id="descriptie"></div>
+    </div>
+  <div class="arrow" onclick="nextItem()">&#9655;</div>
+ </section>
 
 {% render 'partials/foot.liquid', squads: squads %}
