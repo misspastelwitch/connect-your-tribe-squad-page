@@ -12,13 +12,18 @@
         {% else %}
           <img src="Default Avatar {{ person.name }}">
         {% endif %}
-        
-  {% for person in persons %}
+
     <a href="{{ person.id }}">
       <article class="student">
         <h1>{{ person.name }}</h1>
-        <p>Handle: {{ person.github_handle }}</p>
-        <p>Birthdate: {{ person.birthdate | date: "%d-%m-%Y" }}</p>
+        <ul>
+                <li>Favorite HTML attribute: {{ person.fav_attribute }}</li>
+                <li>Favorite CSS property: {{ person.fav_property }}</li>
+                <li>Favorite JavaScript feature: {{ person.fav_feature }}</li>
+                <li>Handle: {{ person.github_handle }}</li>
+                <li>Birthdate: {{ person.birthdate | date: "%d-%m-%Y" }}</li>
+        </ul>
+        
 
       </article>
     </a>
