@@ -7,20 +7,21 @@
     <div>
 
        <section class="informatie">
-  {% for person in persons %}
-    <a href="{{ person.id }}">
-      <article class="student">
-        <h1>{{ person.name }}</h1>
-        {% if person.github_handle %}
+       {% if person.github_handle %}
           <img src="https://github.com/{{ person.github_handle }}.png">
         {% else %}
           <img src="Default Avatar {{ person.name }}">
         {% endif %}
-        <p>Birthdate: {{ person.birthdate | date: "%d-%m-%Y" }}</p>
         
+  {% for person in persons %}
+    <a href="{{ person.id }}">
+      <article class="student">
+        <h1>{{ person.name }}</h1>
+        <p>Handle: {{ person.github_handle }}</p>
+        <p>Birthdate: {{ person.birthdate | date: "%d-%m-%Y" }}</p>
+
       </article>
     </a>
-  {% endfor %}
 </section>
 
     </div>
