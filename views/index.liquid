@@ -31,6 +31,17 @@
 
     </div>
   <div class="arrow" onclick="nextItem()">&#9655;</div>
+
+  <div class="zoekbalk">
+        <input type="text" id="zoekfunctie" placeholder="Zoek met favorieten">
+        <div class="results">
+            {% for person in persons %}
+                <div class="fav_property" data-title="{{ person.value | downcase }}">
+                    {{ person.github_handle }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
  </main>
 
 {% render 'partials/foot.liquid', squads: squads %}
