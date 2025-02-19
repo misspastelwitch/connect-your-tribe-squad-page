@@ -1,21 +1,28 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-<h2>Students</h2>
+<h2>Who Is?</h2>
 
- <section class="container">
+ <main class="container">
   <div class="arrow" onclick="prevItem()">&#9665;</div>
     <div>
-      <div class="image" id="pfp"></div>
 
-      <ul>
+       <section class="informatie">
   {% for person in persons %}
-    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
+    <a href="{{ person.id }}">
+      <article class="student">
+        <h3>{{ person.name }}</h3>
+        {% if person.github_handle %}
+          <img src="https://github.com/{{ person.github_handle }}.png" alt="{{ person.name }}">
+        {% else %}
+          <img src="Default Avatar {{ person.name }}">
+        {% endif %}
+      </article>
+    </a>
   {% endfor %}
-      </ul>
+</section>
 
-      <div class="descriptie" id="descriptie"></div>
     </div>
   <div class="arrow" onclick="nextItem()">&#9655;</div>
- </section>
+ </main>
 
 {% render 'partials/foot.liquid', squads: squads %}
